@@ -13,6 +13,7 @@ import UserProfile from './screens/UserProfile';
 import ApplySeller from './screens/ApplySeller';
 import SellerDashboard from './screens/SellerDashboard';
 import UserScreen from './screens/UserScreen';
+import AdminDashboard from './screens/AdminDashboard';
 import SubscriptionList from './screens/SubscriptionList';
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
             } />
 
             <Route path="/admin/userlist" element={
-              <ProtectedRoute isAdmin={true}> <UserScreen /> </ProtectedRoute>
+              <ProtectedRoute isAdmin={true}> <AdminDashboard /> </ProtectedRoute>
             } />
             <Route path="/admin/subscriptions" element={
               <ProtectedRoute isAdmin={true}> <SubscriptionList /> </ProtectedRoute>

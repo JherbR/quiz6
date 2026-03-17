@@ -10,6 +10,15 @@ export const userLoginReducer = (state = {}, action) => {
   }
 };
 
+export const userRegisterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case con.USER_REGISTER_REQUEST: return { loading: true };
+    case con.USER_REGISTER_SUCCESS: return { loading: false, userInfo: action.payload };
+    case con.USER_REGISTER_FAIL: return { loading: false, error: action.payload };
+    default: return state;
+  }
+};
+
 export const userListReducer = (state = { users: [] }, action) => {
   switch (action.type) {
     case con.USER_LIST_SUCCESS: return { loading: false, users: action.payload };

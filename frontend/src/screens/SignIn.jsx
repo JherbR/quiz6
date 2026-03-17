@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container, Card, Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../actions/authActions';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ const SignIn = () => {
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { userInfo } = useSelector(state => state.userLogin);
+  const { userInfo, loading, error } = useSelector(state => state.userLogin);
 
   useEffect(() => {
     if (userInfo) navigate('/');
@@ -28,6 +28,7 @@ const SignIn = () => {
           <Card className="shadow-lg border-0">
             <Card.Body className="p-4">
               <h2 className="text-center mb-4">Sign In</h2>
+              {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={submitHandler}>
                 <Form.Group className="mb-3" controlId="email">
                   <Form.Label>Email Address</Form.Label>
@@ -37,7 +38,7 @@ const SignIn = () => {
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </Form.Group>
-                <Button variant="primary" type="submit" className="w-100 py-2">Login</Button>
+                <Button variant="primary" type="submit" className="w-100 py-2" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</Button>
               </Form>
             </Card.Body>
           </Card>
