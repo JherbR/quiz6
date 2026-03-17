@@ -144,6 +144,8 @@ GEMINI_API_KEY=your_api_key
 PAYPAL_MODE=sandbox
 PAYPAL_CLIENT_ID=your_client_id
 PAYPAL_SECRET=your_secret
+
+
 ```
 
 ### Frontend (.env)
@@ -151,3 +153,10 @@ PAYPAL_SECRET=your_secret
 REACT_APP_PAYPAL_CLIENT_ID=your_client_id
 REACT_APP_API_BASE=http://127.0.0.1:8000
 
+2 Business Account
+sb-ezje650012053@business.example.com
+9'L$M,/d
+sb-wf4ak49935746@business.example.com
+b2-]w6DI
+
+1 Personal Account
